@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meteorologická data</title>
+    <style>
+      body {
+        font-size: 14px;
+        font-family: Helvetica;
+      }
+      td {
+        background-color: #eee;
+        text-align: right;
+        font-family: monospace;
+      }
+      td, th {
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="obsah">
+      <ol>
+        {% for filename, dataset in datasets.items() %}
+          <li><a href="#{{ filename.rsplit('.')[0] }}">{{ dataset.title }}</a></li>
+        {%- endfor %}
+      </ol>
+    </div>
+
+    {% for filename, dataset in datasets.items() %}
+      <div id="{{ filename.rsplit('.')[0] }}">
+        <h1>{{ dataset.title }}</h1>
+        <table>
+
+          <thead>
+            <tr>
+              <th rowspan="2">rok</th>
+              <th rowspan="2">měsíc</th>
+              <th colspan="31">den</th>
+            </tr>
+            <tr>
+              {% for i in range(31) -%}
+                <th>{{ i + 1 }}</th>
+              {%- endfor %}
+            </tr>
+          </thead>
+
+          <tbody>
+          {% for row in dataset.data -%}
+            <tr>
+              <th>{{ row.rok }}</th>
+              <th>{{ row.mesic }}</th>
+              {% for den in row.dny -%}
+                <td>{{ den }}</td>
+              {%- endfor %}
+            </tr>
+          {%- endfor %}
+          </tbody>
+
+        </table>
+      </div>
+    {% endfor %}
+
+  </body>
+</html>
