@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+matplotlib
+pyzmq
+click
+flask
