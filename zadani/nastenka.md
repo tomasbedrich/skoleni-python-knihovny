@@ -9,7 +9,7 @@ Druhá z nich, klient, bude webová aplikace, která bude obsahovat dvě stránk
 ## Server
 
 - použijeme knihovnu `pyzmq` ([dokumentace](https://pyzmq.readthedocs.io)) - importuje se jako `zmq`
-- mód komunikace bude PULL ([popis návrhového vzoru](learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pushpull.html))
+- mód komunikace bude PULL ([popis návrhového vzoru](https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pushpull.html))
 
 *1. úkol: Vytvořte funkci `poslouchej()`, která otevře PULL ZeroMQ socket na TCP portu `6633` pro všechny příchozí spojení. Pak bude v nekonečné smyčce přijímat data a vypisovat je na konzoli.*
 
